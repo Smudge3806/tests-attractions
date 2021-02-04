@@ -6,7 +6,7 @@ use AttractionsIo\Domain\User;
 use AttractionsIo\Value\DateOfBirth;
 use AttractionsIo\Value\EmailAddress;
 use AttractionsIo\Value\Password;
-use Carbon\Carbon;
+use DateTime;
 
 class SerializeTest extends TestCase
 {
@@ -29,7 +29,7 @@ class SerializeTest extends TestCase
                 'last_name' => 'Stark',
                 'date_of_birth' => [
                     'absolute' => '1970-05-29',
-                    'relative' => Carbon::parse('1970-05-29')->diffInYears()
+                    'relative' => $this->getAge('1970-05-29')
                 ],
                 'email_address' => 'ironman@avengers.org',
                 'password' => '************'

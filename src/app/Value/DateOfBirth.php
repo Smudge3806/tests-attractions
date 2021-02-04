@@ -4,7 +4,7 @@ namespace AttractionsIo\Value;
 
 use AttractionsIo\Exception\ValidationException;
 use AttractionsIo\Value\Date as DateValueObject;
-use Carbon\Carbon;
+use DateTime;
 
 /**
  * DateOfBirth
@@ -27,8 +27,9 @@ class DateOfBirth extends DateValueObject
             return $this->value;
         }
 
-        return Carbon::parse($this->value)
-            ->diffInYears();
+        return (int) (new DateTime($this->value))
+            ->diff(new DateTime('now'))
+            ->format('%y');
     }
 
     /**

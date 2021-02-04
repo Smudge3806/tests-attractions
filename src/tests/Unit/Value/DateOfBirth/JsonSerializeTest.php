@@ -16,7 +16,7 @@ class JsonSerializeTest extends TestCase
         $this->assertJsonStringEqualsJsonString(
             json_encode([
                 'absolute' => '1991-02-03',
-                'relative' => intval(date('Y')) - 1991,
+                'relative' => $this->getAge('1991-02-03'),
             ]),
             json_encode($dob)
         );

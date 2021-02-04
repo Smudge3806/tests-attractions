@@ -23,6 +23,6 @@ class GetValueTest extends TestCase
     {
         $dob = new DateOfBirth("1991-02-03");
 
-        $this->assertEquals(intval(date('Y')) - 1991, $dob->getValue(true));
+        $this->assertEquals(intval($this->getAge('1991-02-03'), $dob->getValue(true));
     }
 }
